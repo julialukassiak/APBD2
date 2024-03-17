@@ -16,14 +16,14 @@ public class Program
             throw new ArgumentException("Array is null or empty");
         }
 
-        int max = array[0];
+        int maxVal = array[0];
         for (int i = 1; i < array.Length; i++)
         {
-            if (array[i] > max)
+            if (array[i] > maxVal)
             {
-                max = array[i];
+                maxVal = array[i];
             }
         }
-        return max;
+        return maxVal;
     }
 }
