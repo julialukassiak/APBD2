@@ -4,27 +4,26 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        int[] array = { 1, 2, 3, 4, 5 };
-        double average = MathHelper.CalculateAverage(array);
-        Console.WriteLine("Średnia: " + average);
+        int[] array = { 1, 5, 2, 8, 3, 7, 4, 6 };
+        int max = FindMaxValue(array);
+        Console.WriteLine("Max value in the array: " + max);
     }
-    
-    public static class MathHelper
+
+    public static int FindMaxValue(int[] array)
     {
-        public static double CalculateAverage(int[] numbers)
+        if (array == null || array.Length == 0)
         {
-            if (numbers == null || numbers.Length == 0)
-            {
-                throw new ArgumentException("Tablica liczb nie może być pusta ani null.");
-            }
-
-            int sum = 0;
-            foreach (int number in numbers)
-            {
-                sum += number;
-            }
-
-            return (double)sum / numbers.Length;
+            throw new ArgumentException("Array is null or empty");
         }
+
+        int max = array[0];
+        for (int i = 1; i < array.Length; i++)
+        {
+            if (array[i] > max)
+            {
+                max = array[i];
+            }
+        }
+        return max;
     }
 }
